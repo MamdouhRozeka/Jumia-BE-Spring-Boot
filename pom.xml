@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jumia</groupId>
-	<artifactId>java-exercise</artifactId>
+	<artifactId>Jumia-BE-Spring-Boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>java-exercise</name>
+	<name>Jumia-BE-Spring-Boot</name>
 	<description>Service Exercise for Jumia</description>
 	<properties>
 		<java.version>1.8</java.version>
