@@ -17,20 +17,10 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
-	@RequestMapping(value= "info", method=RequestMethod.GET)
-	public String info() {
-		return "The application is up...";
-	}
-	
 	@RequestMapping(value= "getCustomers", method=RequestMethod.GET)
 	public List<Customer> getCustomers(@RequestParam(value = "country", required = false) String country,
 			@RequestParam(value = "state", required = false) String state) {
 			return customerService.getCustomersByFilter(country, state);
 	}
 	
-//	@RequestMapping(value= "readCustomers", method=RequestMethod.GET)
-//	public List<Customer> readCustomersByRegion) {
-//		return customerService.readCustomers();
-//	}
-//	
 }
