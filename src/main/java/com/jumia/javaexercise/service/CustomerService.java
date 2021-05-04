@@ -19,28 +19,11 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-//    @Transactional
-//    public String createCustomer(Customer Customer){
-//        try {
-//            if (!customerRepository.existsByEmail(Customer.getEmail())){
-//                Customer.setId(null == customerRepository.findMaxId()? 0 : customerRepository.findMaxId() + 1);
-//                customerRepository.save(Customer);
-//                return "Customer record created successfully.";
-//            }else {
-//                return "Customer already exists in the database.";
-//            }
-//        }catch (Exception e){
-//            throw e;
-//        }
-//    }
 
     public List<Customer> getCustomers(){
         return customerRepository.findAll();
     }
     
-//    public List<Customer> filterCustomersByRegion(String region){
-//    	return customerRepository.getCustomersByRegion(region);
-//    }
     
     public String codeToRegex(String code) {
     for (CountryEnum country : CountryEnum.values()) {
