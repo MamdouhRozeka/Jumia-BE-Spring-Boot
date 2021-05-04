@@ -2,6 +2,7 @@ package com.jumia.javaexercise.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Customer {
@@ -12,6 +13,16 @@ public class Customer {
 	private String name;
 	
 	private String phone;
+	
+	@Transient
+	private String country; 
+	
+	@Transient
+	private String countryCode;
+
+	@Transient
+	private boolean state;
+	
 
 	public Customer() {
 	}
@@ -38,6 +49,35 @@ public class Customer {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public String getCountry() {
+		return country;
+	}
+
+	@Transient
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	@Transient
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	@Transient
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+
+	@Transient
+	public boolean isState() {
+		return state;
+	}
+
+	@Transient
+	public void setState(boolean state) {
+		this.state = state;
 	}
 
 	@Override

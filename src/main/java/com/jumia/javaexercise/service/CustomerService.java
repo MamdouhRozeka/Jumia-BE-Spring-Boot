@@ -24,21 +24,24 @@ public class CustomerService {
         return customerRepository.findAll();
     }
     
+    public String phoneNumberToCode(String phoneNumber) {
+        return phoneNumber.substring(phoneNumber.indexOf("("), phoneNumber.indexOf(")")+ 1);
+       }
     
-    public String codeToRegex(String code) {
+    public CountryEnum codeToCountry(String code) {
     for (CountryEnum country : CountryEnum.values()) {
         if (country.getCode().contains(code)) {
-            return country.getRegex();
+            return country;
         }
     }
-    return "";
+    return null;
    }
     
     public boolean codeValidation(Customer customer, String country) {
     		
     	return Pattern.compile(country != null ?
     			Enum.valueOf(CountryEnum.class, country.toUpperCase()).getRegex() :
-    			codeToRegex(customer.getPhone().substring(customer.getPhone().indexOf("("), customer.getPhone().indexOf(")")+ 1))
+    			codeToCountry(phoneNumberToCode(customer.getPhone())).getRegex()
     			).matcher(customer.getPhone()).find();
        }
     
@@ -53,6 +56,16 @@ public class CustomerService {
                 }
                 else
                 	customers = getCustomers();
+                
+                for(Customer customer : customers) {
+                	CountryEnum countryEnum = codeToCountry(phoneNumberToCode(customer.getPhone()));
+                	if( countryEnum != null ) {
+                		customer.setCountry(countryEnum.getName());
+                		customer.setCountryCode(countryEnum.getCode());
+                		customer.setState(codeValidation(customer,country));
+                	}
+                }
+                
                 
                 if(state != null)
                 {
