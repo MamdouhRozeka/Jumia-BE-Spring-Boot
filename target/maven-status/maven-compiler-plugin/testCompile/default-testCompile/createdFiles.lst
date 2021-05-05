@@ -1,1 +1,4 @@
+com/jumia/javaexercise/controller/CountryControllerTest.class
 com/jumia/javaexercise/JavaExerciseApplicationTests.class
+com/jumia/javaexercise/controller/CustomerControllerTest.class
+com/jumia/javaexercise/service/CountryServiceTest.class
