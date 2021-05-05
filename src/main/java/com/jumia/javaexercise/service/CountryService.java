@@ -11,6 +11,9 @@ import com.jumia.javaexercise.model.entity.Country;
 @Service
 public class CountryService {
 
+//----- NOTE: Country Enum was created to expose the current list of countries to FE so as when scaling up the change is localized to BE changes only -----//
+    
+	/********* getCountries: returns all countries from Country Enum *********/
 	
 	public List<Country> getCountries(){
       try {

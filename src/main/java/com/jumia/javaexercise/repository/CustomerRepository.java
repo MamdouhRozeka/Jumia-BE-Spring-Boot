@@ -12,6 +12,7 @@ import com.jumia.javaexercise.model.entity.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer>{
 	
+	/********* findCustomersByCountry: returns all customers from SQLite DB based on country filter *********/
 	
 	@Query("select c from Customer c where c.phone like %:country%")
 	public List<Customer> findCustomersByCountry(@Param("country") String country);

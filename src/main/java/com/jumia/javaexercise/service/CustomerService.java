@@ -20,13 +20,19 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
 
+    /********* getCustomers: returns all customers *********/
+    
     public List<Customer> getCustomers(){
         return customerRepository.findAll();
     }
     
+    /********* phoneNumberToCode: convert phone number to code *********/
+    
     public String phoneNumberToCode(String phoneNumber) {
         return phoneNumber.substring(phoneNumber.indexOf("("), phoneNumber.indexOf(")")+ 1);
        }
+    
+    /********* codeToCountry: convert code to country to get correct country Enum *********/
     
     public CountryEnum codeToCountry(String code) {
     for (CountryEnum country : CountryEnum.values()) {
@@ -37,6 +43,8 @@ public class CustomerService {
     return null;
    }
     
+    /********* codeValidation: check for validity of phone number *********/
+    
     public boolean codeValidation(Customer customer, String country) {
     		
     	return Pattern.compile(country != null ?
@@ -46,7 +54,8 @@ public class CustomerService {
        }
     
     
-
+    /********* getCustomersByFilter: returns customer list based on sent filters sent from controller *********/
+    
     public List<Customer> getCustomersByFilter(String country, String state){
             try {
                 List<Customer> customers = new ArrayList<>();

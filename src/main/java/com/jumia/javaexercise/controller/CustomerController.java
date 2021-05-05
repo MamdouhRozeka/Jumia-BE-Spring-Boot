@@ -16,6 +16,8 @@ public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	/********* getCustomers: returns all customers from customerService based on query parameters sent from FE *********/
 
 	@RequestMapping(value= "getCustomers", method=RequestMethod.GET)
 	public List<Customer> getCustomers(@RequestParam(value = "country", required = false) String country,

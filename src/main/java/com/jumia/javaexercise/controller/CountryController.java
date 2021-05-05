@@ -16,7 +16,8 @@ public class CountryController {
 	@Autowired
 	private CountryService countryService;
 	
-
+	/********* getCountries: returns all valid countries to FE *********/
+	
 	@RequestMapping(value= "getCountries", method=RequestMethod.GET)
 	public List<Country> getCountries() {
 			return countryService.getCountries();
